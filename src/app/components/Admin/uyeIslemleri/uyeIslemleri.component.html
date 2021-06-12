@@ -1,3 +1,47 @@
-<p>
-  uyeIslemleri works!
-</p>
+<div class="container">
+  <h1>Üyelik İşlemleri</h1>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="Aranacak Bir Değer Giriniz" (keyup)="UyeFiltrele($event)">
+  </mat-form-field>
+  <!-- <button mat-fab color="primary" matTooltip="Marka Ekle">
+    <mat-icon aria-label="label">add</mat-icon>
+  </button> -->
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="uye_Id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Uye Id
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.uye_Id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="uye_Ad_Soyad">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Uye Ad Soyad
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.uye_Ad_Soyad}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="uye_E_Mail">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Uye E-Mail
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.uye_E_Mail}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+        <button mat-icon-button matTooltip="Admin Yap">
+          <mat-icon aria-label="label" color="primary" (click)="AdminYap(kayit)">edit</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Ürün Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label" color="warn">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

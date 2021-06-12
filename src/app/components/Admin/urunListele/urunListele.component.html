@@ -4,26 +4,28 @@
     <input matInput placeholder="Aranacak Bir Değer Giriniz">
   </mat-form-field>
   <button mat-fab color="primary" matTooltip="Ürün Ekle">
-    <mat-icon aria-label="label">person_add</mat-icon>
+    <mat-icon aria-label="label">add</mat-icon>
   </button>
   <p>&nbsp;</p>
 
 
 
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-    <ng-container matColumnDef="ogrFoto">
+    <!-- <ng-container matColumnDef="ogrFoto">
       <mat-header-cell *matHeaderCellDef> Fotoğraf
       </mat-header-cell>
       <mat-cell *matCellDef="let UrunBilgisi">
-        <img [src]="servis.siteurl+'/Dosyalar/'+UrunBilgisi.ogrFoto" style="width: 100px;"
+        <img [src]="servis.siteurl+'/Dosyalar/'+UrunBilgisi.urun_Foto1" style="width: 100px;"
           matTooltip="Fotoğrafı Güncellemek İçin Tıklayınız..." />
 
       </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="urunFoto">
+    </ng-container> -->
+    <ng-container matColumnDef="urun_Foto1">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Fotoğrafı
       </mat-header-cell>
-      <mat-cell *matCellDef="let UrunBilgisi"> {{UrunBilgisi.urunfoto}} </mat-cell>
+      <mat-cell *matCellDef="let UrunBilgisi">
+        <img [src]="servis.siteurl+'/Dosyalar/'+UrunBilgisi.urun_Foto1 " style="width: 100px;">
+      </mat-cell>
     </ng-container>
     <ng-container matColumnDef="UrunId">
       <mat-header-cell *matHeaderCellDef mat-sort-header> urun Id

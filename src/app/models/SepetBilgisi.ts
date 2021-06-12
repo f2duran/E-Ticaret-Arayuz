@@ -3,4 +3,9 @@ export class SepetBilgisi {
      sepet_Uye_Id!: string;
      sepet_Urun_Id!: string;
      sepet_Urun_Fiyat!: number;
+
+
+
+
+
 }

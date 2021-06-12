@@ -1,3 +1,41 @@
-<p>
-  sepet works!
-</p>
+<div class="container">
+  <h1>Sepetim</h1>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="Aranacak Bir Değer Giriniz" (keyup)="SepetFilter($event)">
+  </mat-form-field>
+
+  <p>&nbsp;</p>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="urun_Adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let sepeturun"> {{sepeturun.urunbilgi.urun_Adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="sepet_Urun_Fiyat">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Ürün Fiyatı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let sepeturun"> {{sepeturun.sepet_Urun_Fiyat}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let sepeturun">
+        <!-- <button mat-icon-button matTooltip="Ürün Düzenle" (click)="Duzenle(kayit)">
+          <mat-icon aria-label="label" color="primary">edit</mat-icon>
+        </button> -->
+        <button mat-icon-button matTooltip="Ürün Sil" (click)="Sil(sepeturun)">
+          <mat-icon aria-label="label" color="warn">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

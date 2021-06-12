@@ -25,6 +25,7 @@ import { MarkaDialogComponent } from './components/dialogs/marka-dialog/marka-di
 import { KategoriDialogComponent } from './components/dialogs/kategori-dialog/kategori-dialog.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIslemleri.component';
+import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi-dialog/adminUyeBilgi-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +41,14 @@ import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIsleml
     SatılanComponent,
     RegisterComponent,
     UyeIslemleriComponent,
+    UrunListeleComponent,
 
     //Dialoglar
     AlertDialogComponent,
     ConfirmDialogComponent,
     MarkaDialogComponent,
     KategoriDialogComponent,
+    AdminUyeBilgiDialogComponent,
 
 
 
@@ -63,6 +66,7 @@ import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIsleml
     ConfirmDialogComponent,
     MarkaDialogComponent,
     KategoriDialogComponent,
+    AdminUyeBilgiDialogComponent
   ],
   providers: [MyAlertService, ApiService],
   bootstrap: [AppComponent]

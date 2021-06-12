@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class UrunListeleComponent implements OnInit {
   urunler: UrunBilgisi[];
   dataSource: any;
-  displayedColumns = ['urunFoto', 'UrunId', 'urun_Adi', 'urun_Satis_Fiyat', 'islemler'];
+  displayedColumns = ['urun_Foto1', 'UrunId', 'urun_Adi', 'urun_Satis_Fiyat', 'islemler'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

@@ -37,12 +37,7 @@ export class KategorieklelisteleComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
-    if (this.servis.oturumKontrolAdmin()) {
-      location.href = ("admin/kategorieklelistele");
-    } else {
-      alert("Bi zeki sensin")
-      location.href = ("/");
-    };
+
   };
   Ekle() {
     var yeniKayit: KategoriBilgisi = new KategoriBilgisi();
@@ -93,5 +88,14 @@ export class KategorieklelisteleComponent implements OnInit {
         });
       }
     });
+  }
+
+  UyeFiltrele(e) {
+    var deger = e.target.value;
+    this.dataSource.filter = deger.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+
   }
 }

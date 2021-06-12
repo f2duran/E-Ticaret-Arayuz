@@ -13,6 +13,8 @@ import { UyeBilgisi } from '../models/UyeBilgisi';
 })
 export class ApiService {
   apiUrl = "https://localhost:44337/api/";
+  SiteUrl = "https://localhost:44337/";
+
   siteurl = "";
   constructor(
     public http: HttpClient
@@ -76,6 +78,10 @@ export class ApiService {
 
   SepetById(Sepet_Id: string) {
     return this.http.get(this.apiUrl + "sepetbyıd" + Sepet_Id);
+  }
+
+  SepetUyeById(UyeId: string) {
+    return this.http.get(this.apiUrl + "sepetuyebyid/" + UyeId);
   }
 
   SepetEkle(sepet: SepetBilgisi) {

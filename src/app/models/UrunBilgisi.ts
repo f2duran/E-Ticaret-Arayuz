@@ -12,8 +12,8 @@ export class UrunBilgisi {
      urun_İmage!: string
      urun_Admin_Bilgi!: string
      urun_Aciklama!: string
-     urunfoto: string = ""
-     urunfoto1: string = ""
-     urunfoto2: string = ""
-
+     urunfoto: string
+     urun_Foto1: string
+     urun_Foto_2: string
+     urun_foto_3_: string
 }

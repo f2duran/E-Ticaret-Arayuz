@@ -18,6 +18,13 @@ export class UrunEkleComponent implements OnInit {
   kategori_Id: number;
   marka_Id: number;
   secilenFoto: any;
+
+
+
+
+
+
+
   foto: UrunBilgisi = new UrunBilgisi();
   constructor(
     public apiservise: ApiService,
@@ -48,6 +55,7 @@ export class UrunEkleComponent implements OnInit {
       this.kategori = d;
     });
   }
+
   Kaydet(frm) {
     var urun: UrunBilgisi = new UrunBilgisi();
     urun.urun_Adi = frm.urun_Adi
@@ -61,6 +69,7 @@ export class UrunEkleComponent implements OnInit {
     urun.urunfoto = this.foto.urunfoto
     urun.urun_Admin_Bilgi = localStorage.getItem("uyeId")
     urun.urun_Eklenme_Tarih = new Date()
+
     if (urun) {
       //console.log(urun.urun_Admin_Bilgi);
       this.apiservise.UrunEkle(urun).subscribe((s: Sonuc) => {

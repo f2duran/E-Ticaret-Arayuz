@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Marka Listele & Ekle</h1>
   <mat-form-field appearance="outline">
-    <input matInput placeholder="Aranacak Bir Değer Giriniz">
+    <input matInput placeholder="Aranacak Bir Değer Giriniz" (keyup)="UyeFiltrele($event)">
   </mat-form-field>
   <button mat-fab color="primary" matTooltip="Marka Ekle" (click)="Ekle()">
     <mat-icon aria-label="label">add</mat-icon>

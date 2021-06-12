@@ -90,5 +90,14 @@ export class MarkaeklelisteleComponent implements OnInit {
       }
     });
   }
+
+  UyeFiltrele(e) {
+    var deger = e.target.value;
+    this.dataSource.filter = deger.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+
+  }
 }
 

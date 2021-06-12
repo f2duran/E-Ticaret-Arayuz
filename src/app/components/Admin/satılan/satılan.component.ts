@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class SatılanComponent implements OnInit {
   satılan: SepetBilgisi[];
   dataSource: any;
-  displayedColumns = ['urunfoto', 'satis_Urun_Id', 'satis_Top_Fiyat'];
+  displayedColumns = ['urunfoto', 'satis_Urun_Id', 'satis_Top_Fiyat', 'islemler'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
