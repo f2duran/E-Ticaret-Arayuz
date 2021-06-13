@@ -26,6 +26,8 @@ import { KategoriDialogComponent } from './components/dialogs/kategori-dialog/ka
 import { RegisterComponent } from './components/login/register/register.component';
 import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIslemleri.component';
 import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi-dialog/adminUyeBilgi-dialog.component';
+import { UrunFotoDialogComponent } from './components/dialogs/urunFoto-dialog/urunFoto-dialog.component';
+import { HesabımComponent } from './components/uye/hesabım/hesabım.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi
     RegisterComponent,
     UyeIslemleriComponent,
     UrunListeleComponent,
+    HesabımComponent,
 
     //Dialoglar
     AlertDialogComponent,
@@ -49,6 +52,7 @@ import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi
     MarkaDialogComponent,
     KategoriDialogComponent,
     AdminUyeBilgiDialogComponent,
+    UrunFotoDialogComponent
 
 
 
@@ -66,7 +70,8 @@ import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi
     ConfirmDialogComponent,
     MarkaDialogComponent,
     KategoriDialogComponent,
-    AdminUyeBilgiDialogComponent
+    AdminUyeBilgiDialogComponent,
+    UrunFotoDialogComponent
   ],
   providers: [MyAlertService, ApiService],
   bootstrap: [AppComponent]

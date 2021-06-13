@@ -10,6 +10,7 @@ import { MarkaeklelisteleComponent } from './components/Admin/markaeklelistele/m
 import { SatılanComponent } from './components/Admin/satılan/satılan.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIslemleri.component';
+import { HesabımComponent } from './components/uye/hesabım/hesabım.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'sepet',
     component: SepetComponent
+  },
+  {
+    path: 'hesabım',
+    component: HesabımComponent
   },
   {
     path: 'admin/kategorieklelistele',

@@ -6,6 +6,7 @@ import { KategoriBilgisi } from '../models/KategoriBilgisi';
 import { MarkaBilgisi } from '../models/MarkaBilgisi';
 import { SepetBilgisi } from '../models/SepetBilgisi';
 import { UrunBilgisi } from '../models/UrunBilgisi';
+import { UrunFoto } from '../models/UrunFoto';
 import { UyeBilgisi } from '../models/UyeBilgisi';
 
 @Injectable({
@@ -26,7 +27,7 @@ export class ApiService {
   }
 
   UyeById(uye_Id: string) {
-    return this.http.get(this.apiUrl + "uyebyid" + uye_Id);
+    return this.http.get(this.apiUrl + "uyebyid/" + uye_Id);
   }
 
   UyeEkle(uye: UyeBilgisi) {
@@ -50,6 +51,7 @@ export class ApiService {
 
   }
 
+
   //Ürün
   UrunListele() {
     return this.http.get(this.apiUrl + "urunliste")
@@ -70,6 +72,11 @@ export class ApiService {
   UrunSil(Urun_Id: string) {
     return this.http.delete(this.apiUrl + "urunsil/" + Urun_Id);
   }
+
+  UrunFotoGuncelle(foto: UrunFoto) {
+    return this.http.post(this.apiUrl + "urunfotoguncelle", foto);
+  }
+
 
   //Sepet
   SepetListe() {

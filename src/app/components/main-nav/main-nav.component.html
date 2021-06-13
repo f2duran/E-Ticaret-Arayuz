@@ -29,7 +29,7 @@
         <button mat-menu-item [routerLink]="['/login']" *ngIf="!servis.oturumKontrol()">Oturum Aç</button>
         <button mat-menu-item (click)="OturumKapat()" *ngIf="servis.oturumKontrol()">Oturum Kapat</button>
         <button mat-menu-item [routerLink]="['/sepet']">Sepetim</button>
-        <button mat-menu-item [routerLink]="['/uye']">deneme</button>
+        <button mat-menu-item [routerLink]="['/hesabım']">Hesabım</button>
       </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>

@@ -47,40 +47,10 @@
         <textarea matInput formControlName="urun_Aciklama"></textarea>
       </mat-form-field>
 
-      <input type="file" hidden="true" #foto (change)="FotoSec($event)" onclick="this.value=null">
-      <button mat-raised-button color="primary" (click)="foto.click()" accept=".jpg,.png">Fotoğraf Seç</button>
 
 
 
-
-
-
-      <!-- <ng-container matColumnDef="ogrFoto">
-        <mat-header-cell *matHeaderCellDef> Fotoğraf
-        </mat-header-cell>
-        <mat-cell *matCellDef="let kayit">
-          <img [src]="apiServis.siteUrl+'/Dosyalar/'+kayit.ogrFoto" style="width: 100px;"
-            matTooltip="Fotoğrafı Güncellemek İçin Tıklayınız..." (click)="FotoYukle2(kayit)" />
-  
-        </mat-cell>
-      </ng-container>
-
-
-      
-      <ng-container matColumnDef="ogrFoto">
-        <mat-header-cell *matHeaderCellDef> Fotoğraf
-        </mat-header-cell>
-        <mat-cell *matCellDef="let kayit">
-          <img [src]="apiServis.siteUrl+'/Dosyalar/'+kayit.ogrFoto" style="width: 100px;"
-            matTooltip="Fotoğrafı Güncellemek İçin Tıklayınız..." (click)="FotoYukle3(kayit)" />
-  
-        </mat-cell>
-      </ng-container> -->
-
-
-
-
-
+      <!-- <button (click)="FotoGuncelle(securun)">Fotoğraf Ekle</button> -->
 
       <button mat-raised-button color="primary" (click)="Kaydet(frm.value)">Kaydet</button>
     </form>

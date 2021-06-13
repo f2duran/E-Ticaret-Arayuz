@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Hesabım</h1>
+  <h3><b>Kullanıcı Adı : </b>{{uye_Ad_Soyad}}</h3>
+  <h3><b>E-Mail : </b>{{uye_E_Mail}}</h3>
+  <!-- <h3><b>Adresim : </b>{{uye_Admin_Bilgisi}}</h3> -->
+  <h3><b>Adresim : </b>{{uye_Adres_Bilgisi}}</h3>
+</div>
+
+<div class="container">
+  <h1>Şifre Yenile</h1>
+  <form action="" [formGroup]="frmsifre">
+    <mat-form-field appearance="outline" style="width: 20%;">
+      <mat-label>Şifre Yenile</mat-label>
+      <input matInput formControlName="uye_Sifre">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="SifreYenile(frmsifre.value)"
+      style="margin-left: 10px;">Kaydet</button>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Adres Yenile</h1>
+  <form action="" [formGroup]="frmadres">
+    <mat-form-field appearance="outline" style="width: 20%;">
+      <mat-label>Adres Gir</mat-label>
+      <input matInput formControlName="uye_Adres_Bilgisi">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="AdresGuncelle(frmadres.value)"
+      style="margin-left: 10px;">Kaydet</button>
+  </form>
+</div>

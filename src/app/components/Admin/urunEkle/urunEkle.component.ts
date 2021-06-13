@@ -1,10 +1,15 @@
+import { UrunFoto } from './../../../models/UrunFoto';
+import { UrunBilgisi } from './../../../models/UrunBilgisi';
 import { Sonuc } from 'src/app/models/Sonuc';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { KategoriBilgisi } from 'src/app/models/KategoriBilgisi';
 import { MarkaBilgisi } from 'src/app/models/MarkaBilgisi';
-import { UrunBilgisi } from 'src/app/models/UrunBilgisi';
 import { ApiService } from 'src/app/services/api.service';
+import { UrunFotoDialogComponent } from '../../dialogs/urunFoto-dialog/urunFoto-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-urunEkle',
@@ -18,9 +23,14 @@ export class UrunEkleComponent implements OnInit {
   kategori_Id: number;
   marka_Id: number;
   secilenFoto: any;
+  urunfoto: UrunFoto = new UrunFoto();
+  securun: UrunBilgisi;
+  ıd: string = "2e996901-7bd5-41e5-b222-90e6b4994144";
 
+  fotoDialogRef: MatDialogRef<UrunFotoDialogComponent>
 
-
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
 
@@ -28,7 +38,9 @@ export class UrunEkleComponent implements OnInit {
   foto: UrunBilgisi = new UrunBilgisi();
   constructor(
     public apiservise: ApiService,
-    public frmbuilder: FormBuilder
+    public frmbuilder: FormBuilder,
+    public matDialog: MatDialog,
+
   ) {
     this.frm = new FormGroup({
       urun_Adi: new FormControl(),
@@ -70,24 +82,49 @@ export class UrunEkleComponent implements OnInit {
     urun.urun_Admin_Bilgi = localStorage.getItem("uyeId")
     urun.urun_Eklenme_Tarih = new Date()
 
+
     if (urun) {
       //console.log(urun.urun_Admin_Bilgi);
       this.apiservise.UrunEkle(urun).subscribe((s: Sonuc) => {
+        urun.urun_Id = s.mesaj;
         console.log(s);
+        this.securun = urun;
+
+
+        this.fotoDialogRef = this.matDialog.open(UrunFotoDialogComponent, {
+          width: '400',
+          data: this.securun
+        });
+        this.fotoDialogRef.afterClosed().subscribe(d => {
+          console.log(this.securun);
+          if (d) {
+            d.urun_Foto_Urun_Id = urun.urun_Id
+            this.apiservise.UrunFotoGuncelle(d).subscribe((s: Sonuc) => {
+              // this.alert.AlertUygula(s);
+              // if (s.islem) {
+              //   this.UrunListele();
+              // }
+              console.log(s);
+            })
+          }
+        })
+
+
+
+
       });
     } else {
       console.log("hata");
     };
+
+
+
+
+
+
   };
-  //şuan Çalışmıyor
-  FotoSec(e) {
-    var fotolar = e.target.files;
-    var foto = fotolar[0];
-    var fr = new FileReader();
-    fr.onloadend = () => {
-      this.secilenFoto = fr.result;
-      this.foto.urunfoto = fr.result.toString();
-    };
-    fr.readAsDataURL(foto);
-  }
+
+
+
+
 }

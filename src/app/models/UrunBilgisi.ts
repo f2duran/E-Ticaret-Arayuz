@@ -11,7 +11,7 @@ export class UrunBilgisi {
      urun_Satılan!: number
      urun_İmage!: string
      urun_Admin_Bilgi!: string
-     urun_Aciklama!: string
+     urun_Aciklama: string
      urunfoto: string
      urun_Foto1: string
      urun_Foto_2: string

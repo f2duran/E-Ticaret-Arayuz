@@ -2,13 +2,14 @@
      <mat-card class="example-card" *ngFor="let urun of urunbilgi">
           <mat-card-header>
                <mat-card-title>{{urun.urun_Adi}}</mat-card-title>
-               <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+               <mat-card-subtitle> {{urun.urun_Aciklama}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image [src]="servis.siteurl+'/Dosyalar/'+ urun.urun_Foto1 " />
+          <img mat-card-image [src]="servis.SiteUrl+'/Dosyalar/'+ urun.urun_Foto1"
+               style="width: 200px; height: 150px;" />
 
           <mat-card-content>
                <p>
-                    {{urun.urun_Aciklama}}
+                    {{urun.urun_Satis_Fiyat | currency : '₺'}}
                </p>
           </mat-card-content>
           <mat-card-actions>

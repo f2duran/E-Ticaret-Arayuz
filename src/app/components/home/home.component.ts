@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     }
   }
   UrunListele() {
-    this.servis.UrunListele().subscribe((d: any = UrunBilgisi) => {
+    this.servis.UrunListele().subscribe((d: UrunBilgisi[]) => {
       this.urunbilgi = d;
     })
   }
