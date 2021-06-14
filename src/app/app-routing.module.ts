@@ -11,20 +11,14 @@ import { SatılanComponent } from './components/Admin/satılan/satılan.componen
 import { RegisterComponent } from './components/login/register/register.component';
 import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIslemleri.component';
 import { HesabımComponent } from './components/uye/hesabım/hesabım.component';
+import { KategoriurunlisteComponent } from './components/kategoriurunliste/kategoriurunliste.component';
+import { UrundetayComponent } from './components/urundetay/urundetay.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-  },
-  {
-    path: 'admin/urunlistele',
-    component: UrunListeleComponent
-  },
-  {
-    path: 'admin/urunekle',
-    component: UrunEkleComponent
   },
   {
     path: 'login',
@@ -35,10 +29,6 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'admin/uyeislemleri',
-    component: UyeIslemleriComponent
-  },
-  {
     path: 'sepet',
     component: SepetComponent
   },
@@ -46,6 +36,18 @@ const routes: Routes = [
     path: 'hesabım',
     component: HesabımComponent
   },
+  {
+    path: 'kategoriurunliste/:kategori_Id',
+    component: KategoriurunlisteComponent
+  },
+  {
+    path: 'urundetay/:urun_Id',
+    component: UrundetayComponent
+  },
+
+
+
+
   {
     path: 'admin/kategorieklelistele',
     component: KategorieklelisteleComponent
@@ -57,6 +59,18 @@ const routes: Routes = [
   {
     path: 'admin/satılan',
     component: SatılanComponent
+  },
+  {
+    path: 'admin/urunlistele',
+    component: UrunListeleComponent
+  },
+  {
+    path: 'admin/urunekle',
+    component: UrunEkleComponent
+  },
+  {
+    path: 'admin/uyeislemleri',
+    component: UyeIslemleriComponent
   },
 
 

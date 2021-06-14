@@ -24,7 +24,8 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Fotoğrafı
       </mat-header-cell>
       <mat-cell *matCellDef="let UrunBilgisi">
-        <img [src]="servis.siteurl+'/Dosyalar/'+UrunBilgisi.urun_Foto1 " style="width: 100px;">
+        <img mat-card-image [src]="servis.SiteUrl+'/Dosyalar/'+ UrunBilgisi.urun_Foto1"
+          style="width: 200px; height: 150px;" />
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="UrunId">
@@ -52,7 +53,9 @@
       <mat-cell *matCellDef="let UrunBilgisi">
 
         <button mat-icon-button matTooltip="Ürünleri Listele">
-          <mat-icon aria-label="label" color="primary">article</mat-icon>
+          <mat-icon aria-label="label" color="primary"
+            [routerLink]="['/kategoriurunliste',UrunBilgisi.urun_Kategori_Id]">
+            article</mat-icon>
         </button>
         <button mat-icon-button matTooltip="Ürün Düzenle">
           <mat-icon aria-label="label" color="primary">edit</mat-icon>

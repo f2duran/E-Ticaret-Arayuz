@@ -13,8 +13,9 @@
                </p>
           </mat-card-content>
           <mat-card-actions>
-               <button mat-raised-button color="primary" (click)="SepeteEkle(urun)">Sepete Ekle</button>
-               <button mat-stroked-button color="primary">Detay</button>
+               <button mat-raised-button color="primary" *ngIf="servis.oturumKontrol()"
+                    (click)="SepeteEkle(urun)">Sepete Ekle</button>
+               <button mat-stroked-button color="primary" [routerLink]="['/urundetay/',urun.urun_Id]">Detay</button>
           </mat-card-actions>
      </mat-card>
 </div>

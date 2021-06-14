@@ -37,9 +37,9 @@ export class SepetComponent implements OnInit {
     this.SepetListele(this.UyeId)
   }
   SepetListele(UyeId: string) {
-
     this.apiservice.SepetUyeById(this.UyeId).subscribe((d: any = SepetBilgisi) => {
       this.sepeturun = d;
+      console.log(d);
       this.dataSource = new MatTableDataSource(this.sepeturun);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

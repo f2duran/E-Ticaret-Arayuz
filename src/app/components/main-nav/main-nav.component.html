@@ -3,7 +3,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Hoşgeldiniz {{uyeadi}}</mat-toolbar>
     <mat-nav-list *ngFor="let k of kategori">
-      <a mat-list-item href="#" *ngIf="!servis.oturumKontrolAdmin()">{{k.kategori_Adi}}</a>
+      <a mat-list-item href="#" [routerLink]="['/kategoriurunliste',k.kategori_Id]"
+        *ngIf="!servis.oturumKontrolAdmin()">{{k.kategori_Adi}}</a>
     </mat-nav-list>
 
     <mat-nav-list *ngIf="servis.oturumKontrolAdmin()">

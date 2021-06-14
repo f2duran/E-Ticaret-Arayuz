@@ -28,6 +28,8 @@ import { UyeIslemleriComponent } from './components/Admin/uyeIslemleri/uyeIsleml
 import { AdminUyeBilgiDialogComponent } from './components/dialogs/adminUyeBilgi-dialog/adminUyeBilgi-dialog.component';
 import { UrunFotoDialogComponent } from './components/dialogs/urunFoto-dialog/urunFoto-dialog.component';
 import { HesabımComponent } from './components/uye/hesabım/hesabım.component';
+import { KategoriurunlisteComponent } from './components/kategoriurunliste/kategoriurunliste.component';
+import { UrundetayComponent } from './components/urundetay/urundetay.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { HesabımComponent } from './components/uye/hesabım/hesabım.component'
     UyeIslemleriComponent,
     UrunListeleComponent,
     HesabımComponent,
+    KategoriurunlisteComponent,
+    UrundetayComponent,
 
     //Dialoglar
     AlertDialogComponent,

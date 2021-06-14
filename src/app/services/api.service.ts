@@ -42,14 +42,7 @@ export class ApiService {
     return this.http.delete(this.apiUrl + "uyesil/" + Uye_Id);
   }
 
-  UyeSifreYenile(Uye_Id: UyeBilgisi) {
-    return this.http.put(this.apiUrl + "sifreyenile", Uye_Id);
-  }
 
-  UyeAdresDuzenle(Uye_Id: UyeBilgisi) {
-    return this.http.put(this.apiUrl + "adresduzenle", Uye_Id);
-
-  }
 
 
   //Ürün
@@ -57,9 +50,17 @@ export class ApiService {
     return this.http.get(this.apiUrl + "urunliste")
   }
 
-  UrunById(urun_Id: string) {
-    return this.http.get(this.apiUrl + "urunbyıd" + urun_Id);
+  UrunKatById(kategori_Id: string) {
+    return this.http.get(this.apiUrl + "urunkatlistebyıd/" + kategori_Id);
   }
+
+  UrunById(urun_Id: string) {
+    return this.http.get(this.apiUrl + "urunbyıd/" + urun_Id);
+  }
+  UrunDetayById(urun_Id: string) {
+    return this.http.get(this.apiUrl + "urundetaybyid/" + urun_Id);
+  }
+
 
   UrunEkle(urun: UrunBilgisi) {
     return this.http.post(this.apiUrl + "urunekle", urun);
@@ -83,9 +84,7 @@ export class ApiService {
     return this.http.get(this.apiUrl + "sepetlistele")
   }
 
-  SepetById(Sepet_Id: string) {
-    return this.http.get(this.apiUrl + "sepetbyıd" + Sepet_Id);
-  }
+
 
   SepetUyeById(UyeId: string) {
     return this.http.get(this.apiUrl + "sepetuyebyid/" + UyeId);
