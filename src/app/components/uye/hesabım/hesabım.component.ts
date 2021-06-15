@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { Sonuc } from 'src/app/models/Sonuc';
 import { UyeBilgisi } from 'src/app/models/UyeBilgisi';
 import { ApiService } from 'src/app/services/api.service';
+import { MyAlertService } from 'src/app/services/myAlert.service';
 
 @Component({
   selector: 'app-hesabım',
@@ -25,8 +26,8 @@ export class HesabımComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     public apiservis: ApiService,
-    public frmbuilder: FormBuilder
-
+    public frmbuilder: FormBuilder,
+    public alert: MyAlertService,
   ) {
     this.frmsifre = new FormGroup({
       uye_Sifre: new FormControl(),
@@ -63,7 +64,7 @@ export class HesabımComponent implements OnInit {
 
     if (uye) {
       this.apiservis.UyeDuzenle(uye).subscribe((s: Sonuc) => {
-        console.log(s);
+        this.alert.AlertUygula(s);
         location.href = "/hesabım"
 
       });
@@ -84,7 +85,7 @@ export class HesabımComponent implements OnInit {
 
     if (uye) {
       this.apiservis.UyeDuzenle(uye).subscribe((s: Sonuc) => {
-        console.log(s);
+        //this.alert.AlertUygula(s);
         location.href = "/hesabım"
       });
     } else {

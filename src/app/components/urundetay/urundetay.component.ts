@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SepetBilgisi } from 'src/app/models/SepetBilgisi';
 import { UrunBilgisi } from 'src/app/models/UrunBilgisi';
 import { UrunDetay } from 'src/app/models/urunDetay';
 import { ApiService } from 'src/app/services/api.service';
@@ -24,7 +25,6 @@ export class UrundetayComponent implements OnInit {
         this.urun_Id = p.urun_Id;
         this.UrunDetay(this.urun_Id);
       }
-
     })
   }
   UrunDetay(urun_Id) {
@@ -34,6 +34,15 @@ export class UrundetayComponent implements OnInit {
     })
   }
   SepeteEkle(Urunler: UrunDetay) {
-
+    var sepetbilgi: SepetBilgisi = new SepetBilgisi();
+    sepetbilgi.sepet_Uye_Id = localStorage.getItem("uyeId");
+    sepetbilgi.sepet_Urun_Id = Urunler.urun_Id;
+    sepetbilgi.sepet_Urun_Fiyat = Urunler.urun_Satis_Fiyat;
+    if (sepetbilgi) {
+      this.servis.SepetEkle(sepetbilgi).subscribe(d => {
+        alert("Sepete Eklendi");
+        console.log(sepetbilgi);
+      })
+    }
   }
 }

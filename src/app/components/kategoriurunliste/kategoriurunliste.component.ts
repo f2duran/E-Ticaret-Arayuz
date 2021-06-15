@@ -22,7 +22,6 @@ export class KategoriurunlisteComponent implements OnInit {
         this.kategori_Id = p.kategori_Id;
         this.UrunKatByListele(this.kategori_Id);
       }
-
     })
   }
   SepeteEkle(urun: UrunBilgisi) {
@@ -32,7 +31,7 @@ export class KategoriurunlisteComponent implements OnInit {
     sepetbilgi.sepet_Urun_Fiyat = urun.urun_Satis_Fiyat;
     if (sepetbilgi) {
       this.servis.SepetEkle(sepetbilgi).subscribe(d => {
-        console.log("Sepete Eklendi");
+        alert("Sepete Eklendi");
         console.log(sepetbilgi);
       })
     }
@@ -42,6 +41,4 @@ export class KategoriurunlisteComponent implements OnInit {
       this.urunler = d;
     })
   }
-
-
 }

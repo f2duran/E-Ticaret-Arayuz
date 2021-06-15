@@ -178,7 +178,6 @@ export class ApiService {
   oturumKontrolAdmin() {
 
     if (localStorage.getItem("uyeYetkileri") == '["Admin"]') {
-
       return true;
     }
     else {
@@ -196,9 +195,7 @@ export class ApiService {
           return false;
         }
       });
-
     }
-
     return sonuc;
   }
 }

@@ -89,8 +89,6 @@ export class UrunEkleComponent implements OnInit {
         urun.urun_Id = s.mesaj;
         console.log(s);
         this.securun = urun;
-
-
         this.fotoDialogRef = this.matDialog.open(UrunFotoDialogComponent, {
           width: '400',
           data: this.securun
@@ -100,31 +98,13 @@ export class UrunEkleComponent implements OnInit {
           if (d) {
             d.urun_Foto_Urun_Id = urun.urun_Id
             this.apiservise.UrunFotoGuncelle(d).subscribe((s: Sonuc) => {
-              // this.alert.AlertUygula(s);
-              // if (s.islem) {
-              //   this.UrunListele();
-              // }
               console.log(s);
             })
           }
         })
-
-
-
-
       });
     } else {
       console.log("hata");
     };
-
-
-
-
-
-
   };
-
-
-
-
 }

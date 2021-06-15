@@ -1,7 +1,9 @@
+import { Sonuc } from './../../models/Sonuc';
 import { SepetBilgisi } from './../../models/SepetBilgisi';
 import { Component, OnInit } from '@angular/core';
 import { UrunBilgisi } from 'src/app/models/UrunBilgisi';
 import { ApiService } from 'src/app/services/api.service';
+import { MyAlertService } from 'src/app/services/myAlert.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +11,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //dialogRef: MatDialogRef<ConfirmDialogComponent> | undefined;
-
-  //dialogRef: MatDialogRef<ConfirmDialogComponent> | undefined;
   urunbilgi!: UrunBilgisi[];
   constructor(
-    public servis: ApiService
+    public servis: ApiService,
+    public alert: MyAlertService
   ) { }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     sepetbilgi.sepet_Urun_Fiyat = urun.urun_Satis_Fiyat;
     if (sepetbilgi) {
       this.servis.SepetEkle(sepetbilgi).subscribe(d => {
-        console.log("Sepete Eklendi");
+        alert("Sepete Eklendi");
         console.log(sepetbilgi);
       })
     }
