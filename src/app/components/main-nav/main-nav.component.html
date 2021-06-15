@@ -1,7 +1,8 @@
 <mat-sidenav-container class="sidenav-container" class="mat-elevation-z4" style="background-color: 3F51B5;">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Hoşgeldiniz {{uyeadi}}</mat-toolbar>
+    <mat-toolbar><a href="/"> Hoşgeldiniz {{uyeadi}}</a></mat-toolbar>
+
     <mat-nav-list *ngFor="let k of kategori">
       <a mat-list-item href="#" [routerLink]="['/kategoriurunliste',k.kategori_Id]"
         *ngIf="!servis.oturumKontrolAdmin()">{{k.kategori_Adi}}</a>
@@ -25,12 +26,25 @@
       </button>
       <span>e-ticaret</span>
       <span class="spacer"></span>
-      <button mat-button [matMenuTriggerFor]="menu">Hesabım</button>
+      <button mat-menu-item [routerLink]="['/sepet']" *ngIf="servis.oturumKontrol()&& !servis.oturumKontrolAdmin()">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/login']" *ngIf="!servis.oturumKontrol()">Oturum Aç</button>
-        <button mat-menu-item (click)="OturumKapat()" *ngIf="servis.oturumKontrol()">Oturum Kapat</button>
-        <button mat-menu-item [routerLink]="['/sepet']">Sepetim</button>
-        <button mat-menu-item [routerLink]="['/hesabım']">Hesabım</button>
+        <button mat-menu-item [routerLink]="['/login']" *ngIf="!servis.oturumKontrol()">
+          <mat-icon>login</mat-icon> Oturum Aç
+        </button>
+        <button mat-menu-item (click)="OturumKapat()" *ngIf="servis.oturumKontrol()">
+          <mat-icon>logout</mat-icon> Oturum Kapat
+        </button>
+        <button mat-menu-item [routerLink]="['/sepet']" *ngIf="servis.oturumKontrol()&& !servis.oturumKontrolAdmin()">
+          <mat-icon>shopping_cart</mat-icon> Sepetim
+        </button>
+        <button mat-menu-item [routerLink]="['/hesabım']" *ngIf="servis.oturumKontrol()">
+          <mat-icon>fingerprint</mat-icon> Hesabım
+        </button>
       </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>

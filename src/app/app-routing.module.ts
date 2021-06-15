@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/AuthGuard';
 import { UrunListeleComponent } from './components/Admin/urunListele/urunListele.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -28,14 +29,28 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+
+  //Üyeye Özel Sayfalar
   {
     path: 'sepet',
-    component: SepetComponent
+    component: SepetComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Uye"],
+      gerigit: "/"
+    }
   },
   {
     path: 'hesabım',
-    component: HesabımComponent
+    component: HesabımComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Uye", "Admin"],
+      gerigit: "/"
+    }
   },
+
+  //ÜrünListeleme
   {
     path: 'kategoriurunliste/:kategori_Id',
     component: KategoriurunlisteComponent
@@ -45,35 +60,61 @@ const routes: Routes = [
     component: UrundetayComponent
   },
 
-
-
-
+  //Adminlik Sayfaları
   {
     path: 'admin/kategorieklelistele',
-    component: KategorieklelisteleComponent
+    component: KategorieklelisteleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
   {
     path: 'admin/markaeklelistele',
-    component: MarkaeklelisteleComponent
+    component: MarkaeklelisteleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
   {
     path: 'admin/satılan',
-    component: SatılanComponent
+    component: SatılanComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
   {
     path: 'admin/urunlistele',
-    component: UrunListeleComponent
+    component: UrunListeleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
   {
     path: 'admin/urunekle',
-    component: UrunEkleComponent
+    component: UrunEkleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
   {
     path: 'admin/uyeislemleri',
-    component: UyeIslemleriComponent
+    component: UyeIslemleriComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ["Admin"],
+      gerigit: "/"
+    }
   },
-
-
 ];
 
 @NgModule({

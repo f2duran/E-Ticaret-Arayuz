@@ -53,14 +53,11 @@
       <mat-cell *matCellDef="let UrunBilgisi">
 
         <button mat-icon-button matTooltip="Ürünleri Listele">
-          <mat-icon aria-label="label" color="primary"
-            [routerLink]="['/kategoriurunliste',UrunBilgisi.urun_Kategori_Id]">
+          <mat-icon aria-label="label" color="primary" [routerLink]="['/urundetay',UrunBilgisi.urun_Id]">
             article</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Ürün Düzenle">
-          <mat-icon aria-label="label" color="primary">edit</mat-icon>
-        </button>
-        <button mat-icon-button matTooltip="Ürün Sil">
+
+        <button mat-icon-button matTooltip="Ürün Sil" (click)="Sil(UrunBilgisi)">
           <mat-icon aria-label="label" color="warn">delete</mat-icon>
         </button>
 

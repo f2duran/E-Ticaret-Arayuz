@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/AuthGuard';
 import { MarkaeklelisteleComponent } from './components/Admin/markaeklelistele/markaeklelistele.component';
 import { UrunListeleComponent } from './components/Admin/urunListele/urunListele.component';
 import { ApiService } from './services/api.service';
@@ -13,7 +14,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { UrunEkleComponent } from './components/Admin/urunEkle/urunEkle.component';
@@ -30,6 +31,7 @@ import { UrunFotoDialogComponent } from './components/dialogs/urunFoto-dialog/ur
 import { HesabımComponent } from './components/uye/hesabım/hesabım.component';
 import { KategoriurunlisteComponent } from './components/kategoriurunliste/kategoriurunliste.component';
 import { UrundetayComponent } from './components/urundetay/urundetay.component';
+import { AuthInterceptor } from './services/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { UrundetayComponent } from './components/urundetay/urundetay.component';
     AdminUyeBilgiDialogComponent,
     UrunFotoDialogComponent
   ],
-  providers: [MyAlertService, ApiService],
+  providers: [MyAlertService, ApiService, AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

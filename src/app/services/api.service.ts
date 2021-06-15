@@ -185,4 +185,20 @@ export class ApiService {
       return false;
     }
   }
+
+  yetkiKontrol(yetkiler) {
+    var uyeYetkileri: string[] = JSON.parse(localStorage.getItem("uyeYetkileri"));
+    var sonuc: boolean = false;
+    if (uyeYetkileri) {
+      yetkiler.forEach(element => {
+        if (uyeYetkileri.indexOf(element) > -1) {
+          sonuc = true;
+          return false;
+        }
+      });
+
+    }
+
+    return sonuc;
+  }
 }

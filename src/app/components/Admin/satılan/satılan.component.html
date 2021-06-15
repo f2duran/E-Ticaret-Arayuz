@@ -28,11 +28,11 @@
     <ng-container matColumnDef="islemler">
       <mat-header-cell *matHeaderCellDef> İşlemler
       </mat-header-cell>
-      <mat-cell *matCellDef="let KategoriBilgisi">
+      <mat-cell *matCellDef="let SatisBilgisi">
         <button mat-icon-button matTooltip="Detaya Git">
           <mat-icon aria-label="label" color="primary">search</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Satışı İptal Et">
+        <button mat-icon-button matTooltip="Satışı İptal Et" (click)="Sil(SatisBilgisi)">
           <mat-icon aria-label="label" color="warn">delete</mat-icon>
         </button>
 

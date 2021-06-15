@@ -8,6 +8,10 @@
     <mat-label>Parola</mat-label>
     <input matInput placeholder="Parola" type="password" #parola>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="OturumAc(email.value,parola.value)">Oturum Aç</button>&nbsp;
-  <button mat-raised-button color="primary" [routerLink]="'/register'">Üye Ol</button>
+  <button mat-raised-button color="primary" (click)="OturumAc(email.value,parola.value)">
+    <mat-icon>login</mat-icon> Oturum Aç
+  </button>&nbsp;
+  <button mat-raised-button color="primary" [routerLink]="'/register'">
+    <mat-icon>person_add</mat-icon> Üye Ol
+  </button>
 </div>

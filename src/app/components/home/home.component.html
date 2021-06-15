@@ -2,7 +2,7 @@
      <mat-card class="example-card" *ngFor="let urun of urunbilgi">
           <mat-card-header>
                <mat-card-title>{{urun.urun_Adi}}</mat-card-title>
-               <mat-card-subtitle> {{urun.urun_Aciklama}}</mat-card-subtitle>
+               <!-- <mat-card-subtitle> {{urun.urun_Aciklama}}</mat-card-subtitle> -->
           </mat-card-header>
           <img mat-card-image [src]="servis.SiteUrl+'/Dosyalar/'+ urun.urun_Foto1"
                style="width: 200px; height: 150px;" />

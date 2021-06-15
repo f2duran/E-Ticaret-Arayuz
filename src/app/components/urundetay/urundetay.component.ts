@@ -12,6 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class UrundetayComponent implements OnInit {
   urunler: UrunDetay[];
   urun_Id: string;
+  urun_Adi: string;
   constructor(
     public servis: ApiService,
     public route: ActivatedRoute,
@@ -27,9 +28,12 @@ export class UrundetayComponent implements OnInit {
     })
   }
   UrunDetay(urun_Id) {
-    this.servis.UrunDetayById(urun_Id).subscribe((d: any = UrunBilgisi) => {
-      this.urunler = d.urun_Id;
+    this.servis.UrunDetayById(urun_Id).subscribe((d: any = UrunDetay) => {
+      this.urunler = d;
       console.log(d);
     })
+  }
+  SepeteEkle(Urunler: UrunDetay) {
+
   }
 }
